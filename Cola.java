@@ -5,15 +5,14 @@ public class Cola {
     float pSal=0;
 
         class Nodo {
-            //int[]info = new int[4];          
-            /*
-            [0] 
-            [1]
-            [2]
-            [3]
-            */
             int info;  
+            float time;
             Nodo sig;
+            
+            public void timer()
+            {
+                time = pSal - time;
+            }
         }
 
         private Nodo raiz,fondo;
@@ -35,13 +34,15 @@ public class Cola {
             fondo=null;
         }
         
-        private void insertar (int info) {
+        private void insertar (int info, float time ) {
             Nodo nuevo;
             nuevo = new Nodo ();
+            nuevo.time = time;
             nuevo.info = info;
             nuevo.sig = null;
             if (vacia ()) {
                 raiz = nuevo;
+                nuevo.time = time;
                 fondo = nuevo;
             } else {
                 fondo.sig = nuevo;
@@ -49,8 +50,10 @@ public class Cola {
             }
         }
         
-        public boolean insert(int info)  {
-            if(tamaño()<4)  {   insertar(info);   return true;   }         
+        public boolean insert(int info, float time)  {
+            if(tamaño()<4)  {  
+                
+                insertar(info, time);   return true;   }         
             else            {  return false;  }
         }
                 
@@ -89,6 +92,20 @@ public class Cola {
                 reco=reco.sig;
             }
             return tam;
+        
+           
         }
+        
+        public Nodo getFirst()
+        {
+        return raiz;
+        } 
+        
+        public Nodo getLast()
+        {
+        return fondo;
+        }
+        
 }
   
+
