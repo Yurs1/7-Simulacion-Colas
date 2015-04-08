@@ -1,5 +1,4 @@
 
-
 package simcola;
 public class Index {
         
@@ -21,7 +20,7 @@ public class Index {
         {
             System.out.println("ingrese el valor de Lamba: ");
             lam = 5;
-            a=13;
+            a=6;
             b=4;
             abandonan=0;
             tot_llegado=1;
@@ -43,7 +42,7 @@ public class Index {
                     if(c1.tamaño()>0&&c1.pSal<itera)
                         {
                             c1.getFirst().timer();  // obtener el tiempo que demoro haciendo fila
-                            
+                            promTimeFila1=promTimeFila1+c1.getFirst().time;
                             c1.extraer();
                             c1.pSal=c1.pSal +b+ (float)(Math.random()*(a-b));
                             System.out.print("sal1	");
@@ -53,7 +52,7 @@ public class Index {
                     if(c2.tamaño()>0&&c2.pSal<itera)
                         {
                             c2.getFirst().timer(); // obtener el tiempo que demoro haciendo fila
-                            
+                            promTimeFila2=promTimeFila2+c2.getFirst().time;
                             c2.extraer();
                             
                             c2.pSal=c2.pSal + b+(float)(Math.random()*(a-b));
@@ -67,7 +66,6 @@ public class Index {
                 
                 promTamFila1=promTamFila1 +c1.tamaño(); 
                 promTamFila2=promTamFila2 +c2.tamaño();
-                System.out.println("f1: " +promTamFila1+"	f2: "+promTamFila2);
             }
             c1.imprimir();
             System.out.println("");
@@ -114,6 +112,8 @@ public class Index {
         System.out.print("	");
         c2.imprimir();
         System.out.println("");
+        
+        System.out.println("f1: " +promTimeFila1+"	f2: "+promTimeFila2);
     }
     
     public void proms()
